@@ -1,40 +1,42 @@
-{"id":"0","title":"Robinson Crusoe","author":"Daniel Defoe"}
-{"id":"1","title":"The Adventures of Tom Sawyer","author":"Mark Twain (Samuel Clemens)"}
-{"id":"2","title":"The Mysterious Island","author":"Anthony Hope"}
-{"id":"3","title":"Treasure Island","author":"Robert Louis Stevenson"}
-{"id":"4","title":"The Life of James Watt","author":"Edward Bellamy"}
-{"id":"5","title":"The Life of Julius Caesar","author":"Herman Melville"}
-{"id":"6","title":"Little Women","author":"Louisa May Alcott"}
-{"id":"7","title":"Peter Pan","author":"James M. Barrie"}
-{"id":"8","title":"The Adventures of Alice in Wonderland","author":"Lewis Carroll"}
-{"id":"9","title":"Anna Karenina","author":"Leo Tolstoy"}
-{"id":"10","title":"Great Expectations","author":"Charles Dickens"}
-{"id":"11","title":"Moby Dick","author":"Herman Melville"}
-{"id":"12","title":"The Adventures of Sherlock Holmes","author":"Arthur Conan Doyle"}
-{"id":"13","title":"The Picture of Dorian Gray","author":"Oscar Wilde"}
-{"id":"14","title":"Wuthering Heights","author":"Emily Bront\u00eb"}
-{"id":"15","title":"The Lord of the Rings","author":"J.R.R. Tolkien"}
-{"id":"16","title":"The Wonderful Wizard of Oz","author":"L. Frank Baum"}
-{"id":"17","title":"A Tale of Two Cities","author":"Charles Dickens"}
-{"id":"18","title":"Les Miserables","author":"Victor Hugo"}
-{"id":"19","title":"Pride and Prejudice","author":"Jane Austen"}
-{"id":"20","title":"The Count of Monte Cristo","author":"Alexandre Dumas"}
-{"id":"21","title":"The Hunchback of Notre Dame","author":"Victor Hugo"}
-{"id":"22","title":"The Adventures of the Five Orange Pips","author":"Arthur Conan Doyle"}
-{"id":"23","title":"The Moonstone","author":"Wilkie Collins"}
-{"id":"24","title":"The Murders in the Rue Morgue","author":"Edgar Allan Poe"}
-{"id":"25","title":"The Mystery of the Yellow Room","author":"Gaston Leroux"}
-{"id":"26","title":"The Secret Adversary","author":"Agatha Christie"}
-{"id":"27","title":"The Woman in White","author":"Wilkie Collins"}
-{"id":"28","title":"Emma","author":"Jane Austen"}
-{"id":"29","title":"Lady Susan","author":"Jane Austen"}
-{"id":"30","title":"North and South","author":"Elizabeth Gaskell"}
-{"id":"31","title":"Persuasion","author":"Jane Austen"}
-{"id":"32","title":"20000 Leagues Under the Sea","author":"Jules Verne"}
-{"id":"33","title":"A Princess of Mars","author":"Edgar Rice Burroughs"}
-{"id":"34","title":"Frankenstein","author":"Mary Wollstonecraft Shelley"}
-{"id":"35","title":"The Invisible Man","author":"H.G. Wells"}
-{"id":"36","title":"The Time Machine","author":"H.G. Wells"}
-{"id":"37","title":"The War in the Air","author":"H.G. Wells"}
-{"id":"38","title":"The War of the Worlds","author":"H.G. Wells"}
+[
+{"id":"0","title":"Robinson Crusoe","author":"Daniel Defoe"},
+{"id":"1","title":"The Adventures of Tom Sawyer","author":"Mark Twain (Samuel Clemens)"},
+{"id":"2","title":"The Mysterious Island","author":"Anthony Hope"},
+{"id":"3","title":"Treasure Island","author":"Robert Louis Stevenson"},
+{"id":"4","title":"The Life of James Watt","author":"Edward Bellamy"},
+{"id":"5","title":"The Life of Julius Caesar","author":"Herman Melville"},
+{"id":"6","title":"Little Women","author":"Louisa May Alcott"},
+{"id":"7","title":"Peter Pan","author":"James M. Barrie"},
+{"id":"8","title":"The Adventures of Alice in Wonderland","author":"Lewis Carroll"},
+{"id":"9","title":"Anna Karenina","author":"Leo Tolstoy"},
+{"id":"10","title":"Great Expectations","author":"Charles Dickens"},
+{"id":"11","title":"Moby Dick","author":"Herman Melville"},
+{"id":"12","title":"The Adventures of Sherlock Holmes","author":"Arthur Conan Doyle"},
+{"id":"13","title":"The Picture of Dorian Gray","author":"Oscar Wilde"},
+{"id":"14","title":"Wuthering Heights","author":"Emily Bront\u00eb"},
+{"id":"15","title":"The Lord of the Rings","author":"J.R.R. Tolkien"},
+{"id":"16","title":"The Wonderful Wizard of Oz","author":"L. Frank Baum"},
+{"id":"17","title":"A Tale of Two Cities","author":"Charles Dickens"},
+{"id":"18","title":"Les Miserables","author":"Victor Hugo"},
+{"id":"19","title":"Pride and Prejudice","author":"Jane Austen"},
+{"id":"20","title":"The Count of Monte Cristo","author":"Alexandre Dumas"},
+{"id":"21","title":"The Hunchback of Notre Dame","author":"Victor Hugo"},
+{"id":"22","title":"The Adventures of the Five Orange Pips","author":"Arthur Conan Doyle"},
+{"id":"23","title":"The Moonstone","author":"Wilkie Collins"},
+{"id":"24","title":"The Murders in the Rue Morgue","author":"Edgar Allan Poe"},
+{"id":"25","title":"The Mystery of the Yellow Room","author":"Gaston Leroux"},
+{"id":"26","title":"The Secret Adversary","author":"Agatha Christie"},
+{"id":"27","title":"The Woman in White","author":"Wilkie Collins"},
+{"id":"28","title":"Emma","author":"Jane Austen"},
+{"id":"29","title":"Lady Susan","author":"Jane Austen"},
+{"id":"30","title":"North and South","author":"Elizabeth Gaskell"},
+{"id":"31","title":"Persuasion","author":"Jane Austen"},
+{"id":"32","title":"20000 Leagues Under the Sea","author":"Jules Verne"},
+{"id":"33","title":"A Princess of Mars","author":"Edgar Rice Burroughs"},
+{"id":"34","title":"Frankenstein","author":"Mary Wollstonecraft Shelley"},
+{"id":"35","title":"The Invisible Man","author":"H.G. Wells"},
+{"id":"36","title":"The Time Machine","author":"H.G. Wells"},
+{"id":"37","title":"The War in the Air","author":"H.G. Wells"},
+{"id":"38","title":"The War of the Worlds","author":"H.G. Wells"},
 {"id":"39","title":"When the Sleeper Wakes","author":"H.G. Wells"}
+]
