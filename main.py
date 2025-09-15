@@ -1,15 +1,16 @@
 import json, pika
 
-# 1. Connect to RabbitMQ
+# Connect to RabbitMQ
 credentials = pika.PlainCredentials('guest', 'guest')  # default credentials
 connection = pika.BlockingConnection(
     pika.ConnectionParameters('localhost', 5672, '/', credentials)
 )
 channel = connection.channel()
 
-# 2. Declare the queue
+# Declare the queue
 channel.queue_declare(queue='book_reviews')
 
+# Send book to the queue
 def sendBook(book):
     book_id = book['id']
     channel.basic_publish(
@@ -27,5 +28,5 @@ with open('books.json') as json_file:
         book_id = sendbook(book)
         print('Book ID: ' + book_id)
 
-# 3. Close the connection
+# Close the connection
 connection.close()
