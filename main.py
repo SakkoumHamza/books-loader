@@ -8,14 +8,14 @@ connection = pika.BlockingConnection(
 channel = connection.channel()
 
 # Declare the queue
-channel.queue_declare(queue='book_reviews')
+channel.queue_declare(queue='book_queue')
 
 # Send book to the queue
 def sendBook(book):
     book_id = book['id']
     channel.basic_publish(
         exchange='', 
-        routing_key='book_reviews', 
+        routing_key='book_queue', 
         body=json.dumps(book)
     )
     return book_id
