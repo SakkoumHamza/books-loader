@@ -8,25 +8,24 @@ connection = pika.BlockingConnection(
 channel = connection.channel()
 
 # Declare the queue
-channel.queue_declare(queue='book_queue')
+channel.queue_declare(queue='books_queue')
 
 # Send book to the queue
 def sendBook(book):
-    book_id = book['id']
+    book_title = book['title']
     channel.basic_publish(
         exchange='', 
-        routing_key='book_queue', 
+        routing_key='books_queue', 
         body=json.dumps(book)
     )
-    return book_id
+    return book_title
 
 
 with open('books.json') as json_file:
     data = json.load(json_file)
     for book in data:
-        print('Name: ' + book['title'])
-        book_id = sendbook(book)
-        print('Book ID: ' + book_id)
+        book_title = sendBook(book)
+        print('Id: ' + book['id'] + ' | Book : ' + book['title'] + ' ✅')
 
-# Close the connection
-connection.close()
+# # Close the connection
+# connection.close()
