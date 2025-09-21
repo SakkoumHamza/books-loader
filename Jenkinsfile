@@ -8,8 +8,8 @@ node('workers'){
 
     stage('Unit Tests'){
         def imageTest= docker.build("${imageName}-test", "-f Dockerfile.test .")
-        sh "docker run --rm -v $PWD/reports:/app/reports ${imageName}-test"
-        junit "$PWD/reports/*.xml"
+        sh "docker run --rm -v $PWD/reports:/app/reports ${imageName}-test"   // Mount the local reports folder into container so test results are accessible to Jenkins
+        junit "$PWD/reports/*.xml" // Read JUnit-style XML test reports from the mounted folder
     }
 
     stage('Build'){
@@ -32,4 +32,4 @@ def commitID() {
     def commitID = readFile('.git/commitID').trim()
     sh 'rm .git/commitID'
     commitID
-}
+}j

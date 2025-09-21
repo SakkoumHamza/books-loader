@@ -1,6 +1,5 @@
-FROM python:3.12.0
-LABEL version 1.0
-LABEL author = "Hamza"
+FROM python:3.11-slim
+
 
 WORKDIR /app 
 
@@ -10,4 +9,4 @@ RUN pip install -r requirements.txt
 
 COPY books.json main.py ./
 
-CMD python main.py
+CMD ["python", "main.py"]
