@@ -1,28 +1,35 @@
 def imageName = 'sakkoumhamza/book-loader'
 def registry = 'https://index.docker.io/v1/'
 
-node('workers'){
-    stage('Checkout'){
+node('workers') {
+    stage('Checkout') {
         checkout scm
     }
 
-    stage('Unit Tests'){
-        def imageTest= docker.build("${imageName}-test", "-f Dockerfile.test .")
-        sh "docker run --rm -v $PWD/reports:/app/reports ${imageName}-test"   // Mount the local reports folder into container so test results are accessible to Jenkins
-        junit "$PWD/reports/*.xml" // Read JUnit-style XML test reports from the mounted folder
+    stage('Unit Tests') {
+        sh "docker build -t ${imageName}-test -f Dockerfile.test ."
+        sh "docker run --rm -v ${env.WORKSPACE}/reports:/app/reports ${imageName}-test"
+        junit "${env.WORKSPACE}/reports/*.xml"
     }
 
-    stage('Build'){
-        docker.build(imageName)
+    stage('Build') {
+        sh "docker build -t ${imageName}:${commitID()} ."
     }
 
-    stage('Push'){
-        docker.withRegistry(registry, 'registry') {
-            docker.image(imageName).push(commitID())
+    stage('Push') {
+         withCredentials([usernamePassword(credentialsId: 'registry', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]) {
+            sh "echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin"
 
+            // Push with commit ID
+            sh "docker push ${imageName}:${commitID()}"
+
+            // Push 'develop' tag if on develop branch
             if (env.BRANCH_NAME == 'develop') {
-                docker.image(imageName).push('develop')
+                sh "docker tag ${imageName}:${commitID()} ${imageName}:develop"
+                sh "docker push ${imageName}:develop"
             }
+
+            sh "docker logout"
         }
     }
 }
@@ -31,5 +38,5 @@ def commitID() {
     sh 'git rev-parse HEAD > .git/commitID'
     def commitID = readFile('.git/commitID').trim()
     sh 'rm .git/commitID'
-    commitID
-}j
+    return commitID
+}
