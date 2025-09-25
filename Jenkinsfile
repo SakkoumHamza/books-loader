@@ -8,7 +8,7 @@ node('workers') {
 
     stage('Unit Tests') {
         sh "docker build -t ${imageName}-test -f Dockerfile.test ."
-        sh "docker run --rm -v $PWD/Documents/Projects/Books-Ci:CD/books-loader/reports:/app/reports ${imageName}-test"
+        sh "docker run --rm -v '$(pwd)/reports:/app/reports' ${imageName}-test"
         junit "$PWD/reports/*.xml"
     }
 

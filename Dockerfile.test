@@ -1,11 +1,9 @@
-FROM python:3.12.0
+FROM python:3.9
 
-RUN mkdir -p /app/reports
-
-WORKDIR /app
+WORKDIR /app 
 
 RUN pip install unittest-xml-reporting
 
-COPY test_main.py books.json ./
+COPY test_main.py books.json .
 
-CMD python -m xmlrunner --output /app/reports test_main.py
+CMD python test_main.py
