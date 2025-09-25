@@ -9,7 +9,7 @@ node('workers') {
     stage('Unit Tests') {
         sh "docker build -t ${imageName}-test -f Dockerfile.test ."
         sh 'docker run --rm -v "$(pwd)/reports:/app/reports" ' + imageName + '-test'
-        junit "/Users/mac/.jenkins/workspace/books-loader_develop/reports/*.xml"
+        junit "reports/*.xml"
     }
 
     stage('Build') {
