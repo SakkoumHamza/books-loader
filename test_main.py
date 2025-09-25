@@ -1,19 +1,5 @@
 import unittest
 import json
-import xmlrunner
-import os
-
-
-# ensure reports folder exists
-os.makedirs('reports', exist_ok=True)
-
-loader = unittest.TestLoader()
-suite = loader.discover('.')  # discover all tests
-
-with open('reports/results.xml', 'wb') as output:
-    runner = xmlrunner.XMLTestRunner(output=output)
-    runner.run(suite)
-
 
 class TestJSONLoaderMethods(unittest.TestCase):
     books = []

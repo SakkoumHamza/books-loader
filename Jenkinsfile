@@ -8,8 +8,8 @@ node('workers') {
 
     stage('Unit Tests') {
         sh "docker build -t ${imageName}-test -f Dockerfile.test ."
-        sh "docker run --rm -v ${env.WORKSPACE}/reports:/app/reports ${imageName}-test"
-        junit "${env.WORKSPACE}/reports/*.xml"
+        sh "docker run --rm -v $PWD/reports:/app/reports ${imageName}-test"
+        junit "$PWD/reports/*.xml"
     }
 
     stage('Build') {
@@ -25,7 +25,6 @@ node('workers') {
 
             // Push 'develop' tag if on develop branch
             if (env.BRANCH_NAME == 'develop') {
-                sh "docker tag ${imageName}:${commitID()} ${imageName}:develop"
                 sh "docker push ${imageName}:develop"
             }
 
