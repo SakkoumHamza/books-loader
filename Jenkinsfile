@@ -14,6 +14,9 @@ node('workers') {
 
     stage('Build') {
         sh "docker build -t ${imageName}:${commitID()} ."
+            if (env.BRANCH_NAME == 'develop') {
+            sh "docker tag ${imageName}:${commitID()} ${imageName}:develop"
+        }
     }
 
     stage('Push') {
