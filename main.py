@@ -27,5 +27,5 @@ with open('books.json') as json_file:
         book_title = sendBook(book)
         print('Id: ' + book['id'] + ' | Book : ' + book['title'] + ' ✅')
 
-# # Close the connection
-# connection.close()
+# Close the connection
+connection.close()
