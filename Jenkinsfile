@@ -7,9 +7,14 @@ node('workers') {
     }
 
     stage('Unit Tests') {
+        // checks exitsence of reports directory
+        sh "echo 'Workspace is: ' \$PWD"
+        sh "ls -l \$PWD"
+        sh "ls -l \$PWD/reports"
+
         sh "docker build -t ${imageName}-test -f Dockerfile.test ."
         sh "docker run --rm -v '$(pwd)/reports:/app/reports' ${imageName}-test"
-        junit "$PWD/reports/*.xml"
+        junit "\$PWD/reports/*.xml"
     }
 
     stage('Build') {
