@@ -7,22 +7,29 @@ node('workers') {
     }
 
     stage('Unit Tests') {
-        def imageTest = docker.build("${imageName}-test", "-f Dockerfile.test .")
+        docker.build("${imageName}-test", "-f Dockerfile.test .")
         sh "docker run --rm -v ${env.WORKSPACE}/reports:/app/reports ${imageName}-test"
         junit "${env.WORKSPACE}/reports/*.xml"
     }
 
     stage('Build') {
-        docker.build(imageName)
+        sh "docker build -t ${imageName}:${commitID()} ."
     }
 
     stage('Push') {
-        docker.withRegistry(registry, 'registry') {
-            docker.image(imageName).push(commitID())
+         withCredentials([usernamePassword(credentialsId: 'registry', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]) {
+            sh "echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin"
 
+            // Push with commit ID
+            sh "docker push ${imageName}:${commitID()}"
+
+            // Push 'develop' tag if on develop branch
             if (env.BRANCH_NAME == 'develop') {
-                docker.image(imageName).push('develop')
+                sh "docker tag ${imageName}:${commitID()} ${imageName}:develop"
+                sh "docker push ${imageName}:develop"
             }
+
+            sh "docker logout"
         }
     }
 }
