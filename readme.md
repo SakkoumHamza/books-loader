@@ -54,7 +54,7 @@
 ![Jenkins build](screenshots/jenkins.png)
 
 ### 🔹 Docker Hub image repository
-![repo](screenshots/dockerhub.png)
+![repo](screenshots/repo.png)
 
 ### 🔹 RabbitMQ queue 
 ![Books queue](screenshots/queue.png)
