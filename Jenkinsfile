@@ -1,4 +1,4 @@
-def imageName = 'sakkoumhamza/book-loader'
+def imageName = 'sakkoumhamza/books-loader'
 def registry = 'https://index.docker.io/v1/'
 
 node('workers') {
@@ -22,9 +22,6 @@ node('workers') {
     stage('Push') {
          withCredentials([usernamePassword(credentialsId: 'registry', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]) {
             sh "echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin"
-
-            // Push with commit ID
-            sh "docker push ${imageName}:${commitID()}"
 
             // Push 'develop' tag if on develop branch
             if (env.BRANCH_NAME == 'develop') {

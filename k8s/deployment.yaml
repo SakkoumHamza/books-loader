@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: books-loader
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: books-loader
+  template:
+    metadata:
+      labels:
+        app: books-loader
+    spec:
+      containers:
+      - name: books-loader
+        image: sakkoumhamza/books-loader:develop
+        ports:
+        - containerPort: 5000
